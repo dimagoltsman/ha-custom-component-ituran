@@ -22,3 +22,5 @@ ituran:
 ```
 
 and thats it. you have your ituran component ready
+
+![Ituran](https://preview.ibb.co/chwMxS/Screen_Shot_2018_04_20_at_16_53_21.png)
