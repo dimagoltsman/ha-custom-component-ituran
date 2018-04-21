@@ -4,7 +4,7 @@ Ituran component for Home Assistant
 
 usage:
 
-firs, download the files and put them in the right directories like in this repo.
+first, download the files and put them in the right directories like in this repo.
 
 in your configuration.yaml, add:
 
