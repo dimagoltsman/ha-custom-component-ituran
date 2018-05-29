@@ -53,9 +53,6 @@ class StateCardIturan extends Polymer.Element {
   _toStr(obj) {
     return JSON.stringify(obj, null, 2);
   }
-  computeStateName(stateObj) {
-      return window.hassUtil.computeStateName(stateObj);
-  }
 }
 customElements.define(StateCardIturan.is, StateCardIturan);
 </script>
