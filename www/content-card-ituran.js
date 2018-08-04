@@ -8,7 +8,7 @@ class ContentCardIturan extends HTMLElement {
   
   set hass(hass) {
       
-    if(this.constMap || new Date().getTime() - this.lastRefresh < 1000*20){
+    if(new Date().getTime() - this.lastRefresh < 1000*120){
         return;
     }
       
