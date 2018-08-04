@@ -30,6 +30,7 @@ class ContentCardIturan extends HTMLElement {
     this.plate = attr.plate;
     this.map = attr.google_embedded;
     this.lastRefresh = new Date().getTime();
+    this.milage = attr.milage;
     
 
     this.content.innerHTML = `
@@ -38,6 +39,8 @@ class ContentCardIturan extends HTMLElement {
       Location: ${this.location}
       <br><br>
       Plate: ${this.plate}
+      <br><br>
+      Milage: ${this.milage}
       <br><br>
       <iframe src="${this.map}" width="460" height="500"></ iframe>
       <br><br>
