@@ -81,6 +81,7 @@ class Ituran(Entity):
         self._address = car['Address']
         self._plate = car['Plate']
         self._map = STATIC_MAP_FORMAT.format(self._lat, self._lon, self._lat, self._lon)
+        self._milage = car['LastMileage']
         
     @property    
     def state_attributes(self):
@@ -93,6 +94,7 @@ class Ituran(Entity):
             "plate": self._plate,
             "google_map" : GOOGLE_MAP_FORMAT.format(self._lat, self._lon),
             "google_embedded" : GOOGLE_MAP_EMBEDDED_FORMAT.format(self._lat, self._lon),
-            "custom_ui_state_card" : "state-card-ituran"
+            "custom_ui_state_card" : "state-card-ituran",
+            "milage" : self._milage
         }
         
