@@ -39,7 +39,7 @@ class ContentCardIturan extends HTMLElement {
       <br><br>
       Plate: ${this.plate}
       <br><br>
-      <iframe src="${this.map}" width="600" height="600"></ iframe>
+      <iframe src="${this.map}" width="460" height="500"></ iframe>
       <br><br>
       
     `;
