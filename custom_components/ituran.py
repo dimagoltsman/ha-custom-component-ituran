@@ -57,6 +57,7 @@ class Ituran(Entity):
         self._address = 'loading...'
         self._plate = '0000000'
         self._map = STATIC_MAP_FORMAT.format(self._lat, self._lon, self._lat, self._lon)
+        self._milage = '0'
         
     @property
     def should_poll(self):
