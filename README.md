@@ -19,6 +19,7 @@ ituran:
     name: BMW
     username: 'myIturanUsername'
     password: 'myIturanPassword'
+    update_interval: 180
 ```
 
 
