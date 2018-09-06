@@ -5,6 +5,7 @@ import xmltodict
 import json
 import logging
 import datetime
+import time
 
 import voluptuous as vol
 
@@ -38,8 +39,9 @@ def setup(hass, config):
         name = conf.get('name', '')
         username = conf.get('username', '')
         password = conf.get('password', '')
+        update_interval = conf.get('update_interval', 120)
         
-        entities.append(Ituran(name, username, password, ent_id))
+        entities.append(Ituran(name, username, password, ent_id, update_interval))
         
     component.add_entities(entities)
     
@@ -47,8 +49,8 @@ def setup(hass, config):
   
  
 class Ituran(Entity):
-    def __init__(self, name, user, password, ent_it):
-        self.entity_id = ENTITY_ID_FORMAT.format(ent_it.replace('-', '').replace(' ', '_').replace('.', '_'))
+    def __init__(self, name, user, password, ent_id, update_interval):
+        self.entity_id = ENTITY_ID_FORMAT.format(ent_id.replace('-', '').replace(' ', '_').replace('.', '_'))
         self._name = name
         self._user = user
         self._pass = password
@@ -58,6 +60,9 @@ class Ituran(Entity):
         self._plate = '0000000'
         self._map = STATIC_MAP_FORMAT.format(self._lat, self._lon, self._lat, self._lon)
         self._milage = '0'
+        self._update_interval = update_interval
+        self._updated_at = 0.0
+
         
     @property
     def should_poll(self):
@@ -72,6 +77,9 @@ class Ituran(Entity):
         return self._address
         
     def update(self):
+        if self._updated_at + self._update_interval > time.mktime(time.gmtime()):
+            return
+        self._updated_at = time.mktime(time.gmtime())
         url = ITURAN_API_FORMAT.format(self._user, self._pass)
         response = get(url)
         dic = xmltodict.parse(response.text, process_namespaces=False)
@@ -96,6 +104,7 @@ class Ituran(Entity):
             "google_map" : GOOGLE_MAP_FORMAT.format(self._lat, self._lon),
             "google_embedded" : GOOGLE_MAP_EMBEDDED_FORMAT.format(self._lat, self._lon),
             "custom_ui_state_card" : "state-card-ituran",
-            "milage" : self._milage
+            "milage" : self._milage,
+            "update_interval" : self._update_interval
         }
         
