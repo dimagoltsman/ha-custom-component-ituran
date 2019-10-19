@@ -5,6 +5,10 @@ Ituran component for Home Assistant
 usage:
 
 first, download the files and put them in the right directories like in this repo.
+then, you need to install xmltodict 
+```
+pip3 install xmltodict
+```
 
 in your configuration.yaml, add:
 
