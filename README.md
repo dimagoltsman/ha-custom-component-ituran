@@ -28,7 +28,7 @@ and for Lovelace UI, in ui-lovelace.yaml:
 ```
 resources:
   - url: /local/content-card-ituran.js
-    type: js
+    type: module
 ```
 
 and add your card:
