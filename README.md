@@ -13,10 +13,6 @@ pip3 install xmltodict
 in your configuration.yaml, add:
 
 ```
-frontend:
-  extra_html_url:
-    - /local/custom_ui/state-card-ituran.html
-
 
 ituran:
   bmw760li:
