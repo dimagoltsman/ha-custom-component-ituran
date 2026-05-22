@@ -2,6 +2,9 @@
 Ituran component for Home Assistant
 
 
+### archived. ituran changed login way.
+
+
 usage:
 
 first, download the files and put them in the right directories like in this repo.
